@@ -1,0 +1,25 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        int left = 0;
+        int right = s.size()-1;
+        string temp="",ans="";
+        while(left<=right)
+        {
+            if(left<=right && s[left]==' ')
+                left++;
+            while(left<=right && s[left]!=' ')
+                temp=temp+s[left++];
+            if(!temp.empty())
+            {
+                if(!ans.empty())
+                    ans=temp+" "+ans;
+                else {
+                    ans=temp;
+                }
+                temp="";
+            }
+        }
+        return ans;
+    }
+};
